@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TestoFuel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; 
+        }
+        html, body {
+            height: 100%;
+            background-color: rgb(15, 15, 15);
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #header {
+            display: flex;
+            align-items: center;  
+            justify-content: flex-start;
+            height: 70px; /* Fixed height for better scaling */
+            width: 100%;
+            background-color: rgb(36, 36, 36);
+            padding: 0 20px; /* Added padding for better spacing */
+        }
+        img {
+            height: 50px; /* Fixed height for better scaling */
+            width: auto; 
+            margin-right: 20px; 
+        }
+        #btndesign {
+            height: 100%;
+            padding: 0 15px;
+            border: none;
+            background-color: transparent;
+            color: white;
+            font-weight: 100;
+            font-size: 1.2em; /* Adjusted font size for scaling */
+            transition: 0.2s;
+        }
+        #btndesign:hover {
+            background-color: rgb(23, 23, 23);
+            color: wheat;
+        }
+        #mainframe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5vh auto;
+            width: 90%;
+            max-width: 600px;
+        }
+        #p1 {
+            font-size: 2.5em; /* Responsive font size */
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #txt1 {
+            padding: 10px;
+            font-size: 1.2em; /* Responsive font size */
+            width: 100%;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid white; 
+            color: white;
+            transition: 0.2s;
+        }
+        #txt1:hover {
+            border-color: wheat;
+        }
+        #btn2 {
+            height: 40px; /* Consistent height */
+            width: 30%; 
+            max-width: 100px;
+            margin: 12px 0;
+            outline: none;
+            border: solid 1px white;
+            background-color: transparent;
+            color: white;
+            font-size: 1em; /* Consistent font size */
+            transition: 0.2s;
+        }
+        #btn2:hover {
+            background-color: transparent;
+            color: wheat;
+            border-color: wheat;
+        }
+        #searches {
+            width: 100%; 
+            background-color: rgb(36, 36, 36);
+            border: 1px solid white;
+            display: none; 
+            margin-top: 12px; 
+            color: white; 
+        }
+        #searchbtns {
+            display: block;
+            height: 30px;
+            margin: 3px 0; 
+            background-color: transparent;
+            border: solid 1px white;
+            color: white;
+            font-size: 1em; /* Consistent font size */
+            transition: 0.2s;
+        }
+        #searchbtns:hover {
+            border-color: wheat;
+            color: wheat;
+            background-color: rgb(23, 23, 23);
+        }
+        @media (max-width: 600px) {
+            #p1 {
+                font-size: 6vw; /* Responsive font size */
+            }
+            #txt1 {
+                font-size: 4vw; /* Responsive font size */
+            }
+            #btn2 {
+                width: 80%; 
+                max-width: 80px;
+            }
+            #searchbtns {
+                font-size: 4vw; /* Responsive font size */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <img src="https://i.postimg.cc/nzSFVhq3/DALL-E-2024-10-13-20-22-43-A-sleek-bold-logo-design-for-Testo-Fuel-with-a-solid-background-in-rg.webp" alt="TestoFuel Logo">
+        <button id="btndesign">Home</button>
+        <button id="btndesign">About</button>
+        <button id="btndesign">Bug fixes</button>
+        <button id="btndesign">Discord</button>
+    </div>
+    <div id="mainframe">
+        <p id="p1">TestoFuel</p>
+        <input id="txt1" type="text" placeholder="Search TestoFuel">
+        <button id="btn2">Search</button>
+        <div id="searches">
+            <button id="searchbtns">lifting advice</button>
+            <button id="searchbtns">proper form on exercises</button>
+            <button id="searchbtns">steroids</button>
+            <button id="searchbtns">optimal splits</button>
+            <button id="searchbtns">full rom benefits</button>
+        </div> 
+    </div>
+    <script>
+        const txt1 = document.getElementById('txt1');
+        const searches = document.getElementById('searches');
+        const searchBtns = document.querySelectorAll('#searchbtns');
+
+        txt1.addEventListener('focus', () => {
+            searches.style.display = 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!txt1.contains(event.target) && !searches.contains(event.target)) {
+                searches.style.display = 'none'; 
+            }
+        });
+
+        searchBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                txt1.value = btn.innerText; 
+                searches.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

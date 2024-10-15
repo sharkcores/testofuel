@@ -8,39 +8,40 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; 
+            box-sizing: border-box;
         }
         html, body {
             height: 100%;
             background-color: rgb(15, 15, 15);
             font-family: 'Courier New', Courier, monospace;
+            user-select: none;
         }
         #header {
             display: flex;
-            align-items: center;  
+            align-items: center;
             justify-content: flex-start;
-            height: 70px; /* Fixed height for better scaling */
+            height: 70px;
             width: 100%;
             background-color: rgb(36, 36, 36);
-            padding: 0 20px; /* Added padding for better spacing */
+            padding: 0 20px;
         }
         img {
-            height: 50px; /* Fixed height for better scaling */
-            width: auto; 
-            margin-right: 20px; 
+            height: 60px;
+            width: auto;
         }
-        #btndesign {
+        #btndesign, #btndesign1 {
             height: 100%;
-            padding: 0 15px;
             border: none;
             background-color: transparent;
             color: white;
             font-weight: 100;
-            font-size: 1.2em; /* Adjusted font size for scaling */
+            font-size: large;
+            margin: 0 10px;
             transition: 0.2s;
+            cursor: pointer;
         }
         #btndesign:hover {
-            background-color: rgb(23, 23, 23);
+            text-decoration: underline;
             color: wheat;
         }
         #mainframe {
@@ -52,34 +53,42 @@
             max-width: 600px;
         }
         #p1 {
-            font-size: 2.5em; /* Responsive font size */
+            font-size: 45px;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             text-align: center;
+            transition: 0.2s;
         }
-        #txt1 {
+        #p2 {
+            font-size: 15px;
+            color: white;
+            text-align: start;
+            margin: 20px;
+        }
+        #p1:hover {
+            color: wheat;
+        }
+        #txt1, #new-post-caption, #new-post-text {
             padding: 10px;
-            font-size: 1.2em; /* Responsive font size */
+            font-size: 20px;
             width: 100%;
-            outline: none;
             background-color: transparent;
-            border: 1px solid white; 
+            border: 1px solid white;
             color: white;
             transition: 0.2s;
         }
-        #txt1:hover {
+        #txt1:hover, #new-post-caption:hover, #new-post-text:hover {
             border-color: wheat;
         }
         #btn2 {
-            height: 40px; /* Consistent height */
-            width: 30%; 
+            height: 40px;
+            width: 100%;
             max-width: 100px;
             margin: 12px 0;
             outline: none;
             border: solid 1px white;
             background-color: transparent;
             color: white;
-            font-size: 1em; /* Consistent font size */
             transition: 0.2s;
         }
         #btn2:hover {
@@ -88,54 +97,137 @@
             border-color: wheat;
         }
         #searches {
-            width: 100%; 
+            width: 100%;
             background-color: rgb(36, 36, 36);
             border: 1px solid white;
-            display: none; 
-            margin-top: 12px; 
-            color: white; 
+            display: none;
+            margin-top: 12px;
+            color: white;
         }
         #searchbtns {
             display: block;
             height: 30px;
-            margin: 3px 0; 
+            margin: 3px 0;
             background-color: transparent;
             border: solid 1px white;
             color: white;
-            font-size: 1em; /* Consistent font size */
             transition: 0.2s;
+            width: 100%;
+            text-align: left;
         }
         #searchbtns:hover {
             border-color: wheat;
             color: wheat;
             background-color: rgb(23, 23, 23);
         }
-        @media (max-width: 600px) {
-            #p1 {
-                font-size: 6vw; /* Responsive font size */
-            }
-            #txt1 {
-                font-size: 4vw; /* Responsive font size */
-            }
-            #btn2 {
-                width: 80%; 
-                max-width: 80px;
-            }
-            #searchbtns {
-                font-size: 4vw; /* Responsive font size */
-            }
+        #img1 {
+            width: 200px;
+            height: 100px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: 0.2s;
+        }
+        #img1:hover {
+            opacity: 50%;
+        }
+        #roidsdiv {
+            display: none;
+        }
+        #post-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: wheat;
+            border: none;
+            color: black;
+            cursor: pointer;
+        }
+        #new-post-div {
+            display: none;
+            background-color: rgb(36, 36, 36);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid white;
+        }
+        #post-this-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: wheat;
+            border: none;
+            cursor: pointer;
+        }
+        #cancel-btn {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background-color: red;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        .post-summary {
+            background-color: rgb(36, 36, 36);
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid white;
+            cursor: pointer;
+            position: relative;
+        }
+        .post-summary:hover {
+            background-color: rgb(23, 23, 23);
+        }
+        #full-post-div {
+            display: none;
+            background-color: rgb(36, 36, 36);
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid white;
+            color: white;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+        .caption {
+            font-weight: bold;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
     <div id="header">
-        <button id="btndesign">Home</button>
+        <button onclick="window.location.href='https://sharkcores.github.io/testofuel/'" id="btndesign1">Home</button>
         <button id="btndesign">About</button>
-        <button id="btndesign">Logs</button>
+        <button id="btndesign">Bug fixes</button>
         <button id="btndesign">Discord</button>
     </div>
     <div id="mainframe">
         <p id="p1">TestoFuel</p>
+        <img id="img1" src="https://i.postimg.cc/fTRSMkrq/DALL-E-2024-10-14-20-27-56-A-sleek-and-bold-logo-design-for-Testo-Fuel-in-a-wide-format-The-logo.webp">
         <input id="txt1" type="text" placeholder="Search TestoFuel">
         <button id="btn2">Search</button>
         <div id="searches">
@@ -144,29 +236,120 @@
             <button id="searchbtns">steroids</button>
             <button id="searchbtns">optimal splits</button>
             <button id="searchbtns">full rom benefits</button>
-        </div> 
+        </div>
     </div>
+    <div id="roidsdiv">
+        <p id="p2">Topic: <span id="selected-topic">Steroids</span></p>
+        <p id="p1">Steroid Forum</p>
+        
+        <button id="post-btn">Post</button>
+        <div id="new-post-div">
+            <input id="new-post-caption" type="text" placeholder="Post Caption...">
+            <textarea id="new-post-text" placeholder="Type any useful information about the topic"></textarea>
+            <button id="post-this-btn">Post This</button>
+            <button id="cancel-btn">Cancel</button>
+        </div>
+        <div id="posts"></div>
+    </div>
+    <div id="overlay"></div>
+    <div id="full-post-div">
+        <button class="close-btn">X</button>
+        <div class="caption" id="post-caption"></div>
+        <p id="full-post-content"></p>
+    </div>
+
     <script>
         const txt1 = document.getElementById('txt1');
         const searches = document.getElementById('searches');
         const searchBtns = document.querySelectorAll('#searchbtns');
-
+        const btn2 = document.getElementById("btn2");
+        const mainframe = document.getElementById("mainframe");
+        const roidsdiv = document.getElementById("roidsdiv");
+        const postBtn = document.getElementById("post-btn");
+        const newPostDiv = document.getElementById("new-post-div");
+        const postThisBtn = document.getElementById("post-this-btn");
+        const postsDiv = document.getElementById("posts");
+        const fullPostDiv = document.getElementById("full-post-div");
+        const fullPostContent = document.getElementById("full-post-content");
+        const overlay = document.getElementById("overlay");
+        const postCaptionDiv = document.getElementById("post-caption");
+        const cancelBtn = document.getElementById("cancel-btn");
+        const selectedTopic = document.getElementById("selected-topic");
         txt1.addEventListener('focus', () => {
             searches.style.display = 'block';
         });
 
         document.addEventListener('click', (event) => {
-            if (!txt1.contains(event.target) && !searches.contains(event.target)) {
-                searches.style.display = 'none'; 
+            const isClickInside = mainframe.contains(event.target);
+            if (!isClickInside) {
+                searches.style.display = 'none';
             }
         });
 
         searchBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                txt1.value = btn.innerText; 
+                txt1.value = btn.innerText;
+                selectedTopic.textContent = btn.innerText;
                 searches.style.display = 'none';
             });
         });
+
+        btn2.onclick = function () {
+            const inputValue = txt1.value.toLowerCase();
+            const validTopics = Array.from(searchBtns).map(btn => btn.innerText.toLowerCase());
+            if (validTopics.includes(inputValue)) {
+                mainframe.style.display = "none";
+                roidsdiv.style.display = "block";
+            }
+        };
+
+        postBtn.onclick = function () {
+            postBtn.style.display = "none";  
+            newPostDiv.style.display = "block"; 
+        };
+
+        postThisBtn.onclick = function () {
+            const postCaption = document.getElementById("new-post-caption").value;
+            const postContent = document.getElementById("new-post-text").value;
+            if (postCaption.trim() !== "" && postContent.trim() !== "") {
+                const postSummaryDiv = document.createElement("div");
+                postSummaryDiv.classList.add("post-summary");
+                postSummaryDiv.textContent = postCaption;
+
+                postSummaryDiv.onclick = function () {
+                    fullPostContent.textContent = postContent; 
+                    postCaptionDiv.textContent = "Caption: " + postCaption; 
+                    fullPostDiv.style.display = "block";
+                    overlay.style.display = "block";
+                    postBtn.style.display = "none";  
+                    newPostDiv.style.display = "none"; 
+                };
+
+                postsDiv.appendChild(postSummaryDiv); 
+
+                document.getElementById("new-post-caption").value = ""; 
+                document.getElementById("new-post-text").value = ""; 
+                newPostDiv.style.display = "none"; 
+                postBtn.style.display = "block"; 
+            }
+        };
+
+        cancelBtn.onclick = function () {
+            newPostDiv.style.display = "none"; 
+            postBtn.style.display = "block"; 
+        };
+
+        overlay.addEventListener('click', function() {
+            fullPostDiv.style.display = "none";
+            overlay.style.display = "none";
+            postBtn.style.display = "block"; 
+        });
+
+        document.querySelector('.close-btn').onclick = function() {
+            fullPostDiv.style.display = "none";
+            overlay.style.display = "none";
+            postBtn.style.display = "block"; 
+        };
     </script>
 </body>
 </html>
